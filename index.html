@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Precios - Streaming</title>
+  <style>
+    body {
+      background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 3em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 30px;
+      animation: glow 2s infinite alternate;
+      letter-spacing: 2px;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #fff, 0 0 20px #ff8c00, 0 0 30px #ff8c00; }
+      to { text-shadow: 0 0 10px #fff, 0 0 40px #ff8c00, 0 0 50px #ff8c00; }
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .service-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      margin: 20px;
+      width: 300px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+    }
+    .service-header {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #ff8c00;
+      margin-bottom: 15px;
+    }
+    .service-details {
+      display: none;
+      text-align: left;
+      font-size: 1.1em;
+      margin-top: 10px;
+      color: #eaeaea;
+    }
+    .price {
+      color: #ff8c00;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    .service-card.open .service-details {
+      display: block;
+      animation: slideIn 0.5s ease-in-out;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .footer {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+      border-top: 2px solid #ff8c00;
+    }
+    .footer p {
+      font-size: 1.2em;
+      color: #ff8c00;
+      margin: 10px 0;
+    }
+    .footer a {
+      color: #ff8c00;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script>
+    function toggleDetails(serviceCard) {
+      serviceCard.classList.toggle('open');
+    }
+  </script>
+</head>
+<body>
+  <h1>Lista de Precios - Streaming</h1>
+  <div class="container">
+    <!-- Disney+ -->
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="service-header">Disney+</div>
+      <div class="service-details">
+        <p>1 mes perfil: <span class="price">$3</span></p>
+        <p>1 mes completa: <span class="price">$10</span></p>
+      </div>
+    </div>
+
+    <!-- Netflix -->
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="service-header">Netflix</div>
+      <div class="service-details">
+        <p>1 mes completa: <span class="price">$12</span></p>
+      </div>
+    </div>
+
+    <!-- Spotify Premium -->
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="service-header">Spotify Premium</div>
+      <div class="service-details">
+        <p>1 mes: <span class="price">$3.50</span></p>
+        <p>3 meses: <span class="price">$9.50</span></p>
+        <p>6 meses: <span class="price">$17.50</span></p>
+        <p>12 meses: <span class="price">$30.50</span></p>
+      </div>
+    </div>
+
+    <!-- YouTube Premium -->
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="service-header">YouTube Premium</div>
+      <div class="service-details">
+        <p>1 mes: <span class="price">$3.50</span></p>
+        <p>3 meses: <span class="price">$7.50</span></p>
+      </div>
+    </div>
+
+    <!-- Crunchyroll -->
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="service-header">Crunchyroll</div>
+      <div class="service-details">
+        <p>1 mes perfil: <span class="price">$2.50</span></p>
+      </div>
+    </div>
+
+    <!-- Canva Pro -->
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="service-header">Canva Pro</div>
+      <div class="service-details">
+        <p>12 meses: <span class="price">$35</span></p>
+      </div>
+    </div>
+
+    <!-- ChatGPT Plus -->
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="service-header">ChatGPT Plus</div>
+      <div class="service-details">
+        <p>1 mes: <span class="price">$10</span></p>
+      </div>
+    </div>
+
+    <!-- Flujo TV -->
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="service-header">Flujo TV</div>
+      <div class="service-details">
+        <p>1 mes: <span class="price">$5.50</span></p>
+        <p>6 meses + 1 gratis: <span class="price">$30</span></p>
+        <p>12 meses + 2 gratis: <span class="price">$58</span></p>
+        <p>Panel Flujo: <span class="price">Desde $100</span></p>
+      </div>
+    </div>
+
+    <!-- Prime Video --> 
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="service-header">Prime Video</div>
+      <div class="service-details">
+        <p>1 mes perfil: <span class="price">$2.50</span></p>
+        <p>1 mes cuenta completa: <span class="price">$5</span></p>
+      </div>
+    </div>
+
+    <!-- Tele Latino -->
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="service-header">Tele Latino</div>
+      <div class="service-details">
+        <p>Premium completa: <span class="price">$5</span></p>
+        <p>Premium perfil: <span class="price">$3.50</span></p>
+      </div>
+    </div>
+
+    <!-- Pornhub Premium -->
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="service-header">Pornhub Premium</div>
+      <div class="service-details">
+        <p>1 mes: <span class="price">$5</span></p>
+      </div>
+    </div>
+
+    <!-- VIX+ -->
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="service-header">VIX+</div>
+      <div class="service-details">
+        <p>Premium completa: <span class="price">$5</span></p>
+        <p>Premium perfil: <span class="price">$2.50</span></p>
+      </div>
+    </div>
+
+    <!-- Paramount+ -->
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="service-header">Paramount+</div>
+      <div class="service-details">
+        <p>1 mes perfil: <span class="price">$2.50</span></p>
+      </div>
+    </div>
+
+    <!-- Max Estandar -->
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="service-header">Max Estandar</div>
+      <div class="service-details">
+        <p>1 mes: <span class="price">$2.50</span></p>
+        <p>1 mes completa: <span class="price">$6</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p><strong>Preguntar Disponibilidad</strong></p>
+    <p>Click para mas información: <a href="https://wa.me/593983724497?text=Hola,%20quiero%20contratar%20una%20cuenta%20de%20streaming">0983724497</a></p>
+  </div>
+</body>
+</html>
+
+
+
+
